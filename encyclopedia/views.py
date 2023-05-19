@@ -8,3 +8,8 @@ def index(request):
         "entries": util.list_entries()
     })
 
+def index(request):
+    return render(request, "")
+
+
+# add views.pu finction here

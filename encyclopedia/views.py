@@ -21,8 +21,3 @@ def entry(request, title):
             "content": content
         })
 
-# def index(request):
-#     return render(request, "")
-
-
-# add views.pu finction here

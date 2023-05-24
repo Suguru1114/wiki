@@ -27,6 +27,3 @@ def entry(request, title):
 #     else:
 #         # Entry doesn't exist, redirect to the error page
 #         return redirect('error')
-
-def css(request):
-    return render(request, "encyclopedia/css.html")

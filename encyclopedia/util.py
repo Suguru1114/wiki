@@ -3,6 +3,7 @@ import re
 from django.core.files.base import ContentFile
 from django.core.files.storage import default_storage
 
+from encyclopedia import views
 
 def list_entries():
     """

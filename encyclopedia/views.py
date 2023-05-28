@@ -18,6 +18,17 @@ def entry(request, title):
     else:
         return render(request, "encyclopedia/index.html", {"title":title, "content":content})
     
+def index(request):
+    if request.method == "GET":
+        query = request.GET.get('q', '')    
+        entries = util.list_entries()
+        if query:
+            # Filter the entries based on the search query
+            entries = [entry for entry in entries if query.lower() in entry.lower()]
+        return render(request, "encyclopedia/index.html", {"entries": entries, "query": query})
+    else:
+        return redirect('index')
+
 # def entry_page(request, title):
 #     entry = get_object_or_404(Entry, title=title)
 
@@ -27,3 +38,5 @@ def entry(request, title):
 #     else:
 #         # Entry doesn't exist, redirect to the error page
 #         return redirect('error')
+
+# add search function 

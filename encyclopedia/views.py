@@ -1,3 +1,4 @@
+from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.shortcuts import render, get_object_or_404, redirect
 # from .models import Entry
@@ -37,3 +38,24 @@ def index(request):
     else:
         return redirect('index')
 
+# from stackoverflow
+# def search(request): 
+#     entries = util.list_entries()
+#     find_entries = list()
+
+#     search_box = request.GET.get("q").capitalize()
+
+#     if search_box in entries:
+#         return HttpResponseRedirect(f"wiki/{search_box}")
+        
+#     for entry in entries:
+#         if search_box in entry:
+#            find_entries.append(entry)
+#         else:
+#             print(f'{find_entries}')
+        
+#     if find_entries:
+#         return render(request, "encyclopedia/search.html", {
+#           "search_result": find_entries,
+#           "search": search_box
+#     })

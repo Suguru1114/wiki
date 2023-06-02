@@ -1,11 +1,9 @@
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
-from django.shortcuts import render, get_object_or_404, redirect
-# from .models import Entry
-
-# import markdown
+# from django.shortcuts import render, get_object_or_404, redirect
 from . import util
 from django.shortcuts import render, redirect
+import markdown
 
 
 
@@ -14,12 +12,20 @@ from django.shortcuts import render, redirect
 #         "entries": util.list_entries()
 #     })
 
+def convert_md_to_html(title):
+    content = util.get_entry(title)
+    markdowner = markdown.Markdown()
+    if content == None:
+        return None
+    else:
+        return markdowner.convert(content)
+
 def entry(request, title):
     content = util.get_entry(title)
     if content is None:
         return render(request, "encyclopedia/error.html", {"message": "Page not found"})
     else:
-        return render(request, "encyclopedia/index.html", {"title":title, "content":content})
+        return render(request, "encyclopedia/entry.html", {"title":title, "content":content})
 
 
 def index(request):
@@ -35,27 +41,5 @@ def index(request):
                 return redirect('entry', title=query)
 
         return render(request, "encyclopedia/index.html", {"entries": entries, "query": query})
-    else:
-        return redirect('index')
-
-# from stackoverflow
-# def search(request): 
-#     entries = util.list_entries()
-#     find_entries = list()
-
-#     search_box = request.GET.get("q").capitalize()
-
-#     if search_box in entries:
-#         return HttpResponseRedirect(f"wiki/{search_box}")
-        
-#     for entry in entries:
-#         if search_box in entry:
-#            find_entries.append(entry)
-#         else:
-#             print(f'{find_entries}')
-        
-#     if find_entries:
-#         return render(request, "encyclopedia/search.html", {
-#           "search_result": find_entries,
-#           "search": search_box
-#     })
+    # else:
+    #     return redirect('index')

@@ -6,7 +6,7 @@ from django.shortcuts import render, redirect
 import markdown
 
 
-
+# have to fix here 
 # def index(request):
 #     return render(request, "encyclopedia/index.html", {
 #         "entries": util.list_entries()

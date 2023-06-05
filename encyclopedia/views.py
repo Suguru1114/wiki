@@ -15,7 +15,7 @@ def convert_md_to_html(title):
         return markdowner.convert(content)
 
 def entry(request, title):
-    html_content = util.get_entry(title)
+    html_content = convert_md_to_html(title)
     if html_content == None:
         return render(request, "encyclopedia/error.html",{
             "message": "This entry does not exist"
@@ -27,18 +27,37 @@ def entry(request, title):
             })  
 
  
+# def index(request):
+#     if request.method == "GET":
+#         query = request.GET.get('q', '')
+#         entries = util.list_entries()
+#         if query:
+#             # Filter the entries based on the search query
+#             entries = [entry for entry in entries if query.lower() in entry.lower()]
+
+#             # If there is an exact match for the search query, redirect to the entry page
+#             if query.lower() in [entry.lower() for entry in entries]:
+#                 return redirect('entry', title=query)
+
+#         return render(request, "encyclopedia/index.html", {"entries": entries, "query": query})
+#     # else:
+#     #     return redirect('index') 
+
+
 def index(request):
-    if request.method == "GET":
-        query = request.GET.get('q', '')
-        entries = util.list_entries()
-        if query:
-            # Filter the entries based on the search query
-            entries = [entry for entry in entries if query.lower() in entry.lower()]
+    return render(request, "encyclopedia/index.html", {
+        "entries": util.list_entries()
+    })
 
-            # If there is an exact match for the search query, redirect to the entry page
-            if query.lower() in [entry.lower() for entry in entries]:
-                return redirect('entry', title=query)
+def search(request):
+    if request.method == "POST":
+        entry_search = request.POST['q']
+        html_content = convert_md_to_html(entry_search)
+        if html_content is not None:
+            return render(request, "encyclopedia/entry.html",{
+                "title": entry_search,
+                "content": html_content
+            })  
 
-        return render(request, "encyclopedia/index.html", {"entries": entries, "query": query})
-    # else:
-    #     return redirect('index')
+            
+    

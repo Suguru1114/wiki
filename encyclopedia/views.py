@@ -63,6 +63,10 @@ def search(request):
             recommendation = []
             for entry in allEntries:
                 if entry_search.lower() in entry.lower():
+                    recommendation.append(entry)
+            return render(request, "encyclopedia/search.html", {
+                "recommendation" : recommendation
+            })
              
              
 

@@ -12,6 +12,7 @@ urlpatterns = [
     # path('error/', views.error_page, name='error'), 
     # from stackoverflow
     path("search/", views.search, name="search"),
+    path("add/", views.add_page, name="add_page"),
     
  ]
   

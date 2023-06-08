@@ -67,8 +67,11 @@ def search(request):
             return render(request, "encyclopedia/search.html", {
                 "recommendation" : recommendation
             })
-             
-             
+        
+def add_page(request):
+    if request.method == "POST":
+        from = add_page(request.POST)
 
-            
+
+
     

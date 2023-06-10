@@ -72,6 +72,8 @@ def add_page(request):
     if request.method == "POST":
         from = add_page(request.POST)
 
+        if form.is_valid():
+        title = form 
 
 
     

@@ -73,7 +73,7 @@ def add_page(request):
         from = add_page(request.POST)
 
         if form.is_valid():
-        title = form 
+        title = form.cleaned_data
 
 
     

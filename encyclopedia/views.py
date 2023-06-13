@@ -70,10 +70,10 @@ def search(request):
         
 def add_page(request):
     if request.method == "POST":
-        from = add_page(request.POST)
+        form = add_page(request.POST)
 
         if form.is_valid():
-        title = form.cleaned_data
+        title = form.cleaned_data['title']
 
 
     

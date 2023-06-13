@@ -4,6 +4,7 @@ from django.shortcuts import render
 from . import util
 from django.shortcuts import render, redirect
 import markdown
+from django import forms
 
 
 def convert_md_to_html(title):
@@ -73,7 +74,8 @@ def add_page(request):
         form = add_page(request.POST)
 
         if form.is_valid():
-        title = form.cleaned_data['title']
+            title = form.cleaned_data['title']
+
 
 
     

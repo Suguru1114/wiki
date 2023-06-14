@@ -76,6 +76,19 @@ def add_page(request):
         if form.is_valid():
             title = form.cleaned_data['title']
 
+# eg(classs & def)..
+# def my_form(request):
+#     if request.method == 'POST':
+#         form = MyForm(request.POST)
+#         if form.is_valid():
+#             # Process the form data
+#             # ...
+#     else:
+#         form = MyForm()
+#     return render(request, 'my_form_template.html', {'form': form})
 
-
+# class MyForm(forms.Form):
+#     name = forms.CharField(max_length=100)
+#     email = forms.EmailField()
+#     # Additional form fields
     

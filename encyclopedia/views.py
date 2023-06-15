@@ -76,7 +76,7 @@ def add_page(request):
         if form.is_valid():
             title = form.cleaned_data['title']
 
-# eg(classs & def)..
+# eg(classs & def).. class 
 # def my_form(request):
 #     if request.method == 'POST':
 #         form = MyForm(request.POST)

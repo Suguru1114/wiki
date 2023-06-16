@@ -3,8 +3,8 @@ from django.shortcuts import render
 # from django.shortcuts import render, get_object_or_404, redirect
 from . import util
 from django.shortcuts import render, redirect
-# import markdown
 from django import forms
+import markdown
 
 
 def convert_md_to_html(title):

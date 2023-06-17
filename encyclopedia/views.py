@@ -79,4 +79,4 @@ def search(request):
 
 def add_page(request):
     if request.method == "GET":
-        return render(request, "encyclopedia/add_page.html")
+        return render(request, "encyclopedia/add.html")

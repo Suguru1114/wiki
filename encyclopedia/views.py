@@ -68,27 +68,15 @@ def search(request):
             return render(request, "encyclopedia/search.html", {
                 "recommendation" : recommendation
             })
-        
-def add_page(request):
-    if request.method == "POST":
-        form = add_page(request.POST)
 
-        if form.is_valid():
-            title = form.cleaned_data['title']
+# tried to use post       
+# def add_page(request):
+#     if request.method == "POST":
+#         form = add_page(request.POST)
 
-# eg(classs & def).. class 
-# def my_form(request):
-#     if request.method == 'POST':
-#         form = MyForm(request.POST)
 #         if form.is_valid():
-#             # Process the form data
-#             # ...
-#     else:
-#         form = MyForm()
-#     return render(request, 'my_form_template.html', {'form': form})
+#             title = form.cleaned_data['title']
 
-# class MyForm(forms.Form):
-#     name = forms.CharField(max_length=100)
-#     email = forms.EmailField()
-#     # Additional form fields
-    
+def add_page(request):
+    if request.method == "GET":
+        return render(request, "encyclopedia/add_page.html")

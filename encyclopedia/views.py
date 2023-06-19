@@ -4,7 +4,7 @@ from django.shortcuts import render
 from . import util
 from django.shortcuts import render, redirect
 from django import forms
-from .forms import AddPageForm
+# from .forms import AddPageForm
 import markdown
 
 
@@ -79,7 +79,7 @@ def search(request):
 #             title = form.cleaned_data['title']
 
 # access to add.html when user click add newpage 
-# def add_page(request):
-#     if request.method == "GET":
-#         return render(request, "encyclopedia/add.html") 
+def add_page(request):
+    if request.method == "GET":
+        return render(request, "encyclopedia/add.html") 
 

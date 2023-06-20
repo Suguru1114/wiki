@@ -80,6 +80,15 @@ def search(request):
 
 # access to add.html when user click add newpage 
 def add_page(request):
-    if request.method == "GET":
-        return render(request, "encyclopedia/add.html") 
+    if request.method == "POST":
+        form = AddPageForm(request.POST)
+        if form.is_valid():
+            title = form.cleaned_data['title']
+            content = form.cleaned_data['content']
+            # Save the new page using the `util` module or your desired method
+            # ...
+            return redirect('entry', title=title)
+    else:
+        form = AddPageForm()
+    return render(request, "encyclopedia/add.html", {'form': form})
 

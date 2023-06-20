@@ -87,6 +87,6 @@ def search(request):
 #         form = AddPageForm()
 #     return render(request, "encyclopedia/add.html", {'form': form})
 
-def new_page(request):
+def add_page(request):
     if request.method == "GET":
-        return render(request, "encyclopedia/new.html")
+        return render(request, "encyclopedia/add.html")

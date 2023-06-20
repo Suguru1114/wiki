@@ -6,5 +6,8 @@
    
 {% block body %}
     <h1>New Page</h1>
+    <form action="{% url 'new_page' %}" method="POST">
+         <input type="text" name="title" placeholder="Enter a title">
+    </form> 
 
 {% endblock %} 

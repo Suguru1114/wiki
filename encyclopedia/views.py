@@ -1,5 +1,7 @@
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
+
+from encyclopedia.forms import AddPageForm
 # from django.shortcuts import render, get_object_or_404, redirect
 from . import util
 from django.shortcuts import render, redirect
@@ -70,25 +72,21 @@ def search(request):
                 "recommendation" : recommendation
             })
 
-# tried to use post       
 # def add_page(request):
 #     if request.method == "POST":
-#         form = add_page(request.POST)
-
+#         form = AddPageForm(request.POST)
 #         if form.is_valid():
 #             title = form.cleaned_data['title']
+#             content = form.cleaned_data['content']
+#             # Save the new page using the `util` module or your desired method
+#             # ...
+#             util.save_entry(title, content)  # Save the new page using the util module
+#             return redirect('entry', title=title)
 
-# access to add.html when user click add newpage 
-def add_page(request):
-    if request.method == "POST":
-        form = AddPageForm(request.POST)
-        if form.is_valid():
-            title = form.cleaned_data['title']
-            content = form.cleaned_data['content']
-            # Save the new page using the `util` module or your desired method
-            # ...
-            return redirect('entry', title=title)
-    else:
-        form = AddPageForm()
-    return render(request, "encyclopedia/add.html", {'form': form})
+#     else:
+#         form = AddPageForm()
+#     return render(request, "encyclopedia/add.html", {'form': form})
 
+def new_page(request):
+    if request.method == "GET":
+        return render(request, "encyclopedia/new.html")

@@ -9,11 +9,14 @@
 
 
     <form action="{% url 'add_page' %}" method="POST">
-         <label>Title</label>
+         {%csrf_token%}
+         <label>Title:</label>
          <input type="text" name="title" placeholder="Enter a title">
          <br/>
          <label>Markdawn Content</label>
-         <textarea name="add_discription"></textarea>
+         <br/>
+         <textarea name="content"></textarea>
+         <br/>
         <input type="submit" value="New Page" class="btn btn-success">
     </form> 
  

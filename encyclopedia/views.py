@@ -120,3 +120,5 @@ def edit_page(request, title):
         "title": title,
         "form": form
     })
+
+# add here

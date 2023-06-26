@@ -13,6 +13,7 @@ urlpatterns = [
     # from stackoverflow
     path("search/", views.search, name="search"),
     path("add/", views.add_page, name="add_page"),
+    path("wiki/<str:title>/edit", views.edit_page, name="edit_page"),
     
  ]
   

@@ -115,10 +115,8 @@ def edit_page(request, title):
         })
 
     form = AddPageForm(initial={"title": title, "content": existing_content})
-    
     return render(request, "encyclopedia/edit.html",{
         "title": title,
         "form": form
     })
 
-# add here

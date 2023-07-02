@@ -119,6 +119,8 @@ def edit_page(request, title):
     return render(request, "encyclopedia/edit.html",{
         "title": title,
         "form": form
-        # form
+        
     })
+
+
 

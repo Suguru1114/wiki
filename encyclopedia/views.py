@@ -109,10 +109,10 @@ def add_page(request):
 def edit_page(request, title):
     existing_content = util.get_entry(title)
 
-    if existing_content is None:
-        return render (request, "encyclopedia/error.html", {
-            "message": "This entry does not exist"
-        })
+    # if existing_content is None:
+    #     return render (request, "encyclopedia/error.html", {
+    #         "message": "This entry does not exist"
+    #     })
 
     form = AddPageForm(initial={"title": title, "content": existing_content})
     

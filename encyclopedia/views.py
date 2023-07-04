@@ -2,12 +2,13 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render
 
 from encyclopedia.forms import AddPageForm
-# from django.shortcuts import render, get_object_or_404, redirect
 from . import util
 from django.shortcuts import render, redirect
 from django import forms
 # from .forms import AddPageForm
 import markdown
+from django.shortcuts import render,redirect, get_object_or_404
+# gets an object by id or redirects to the 404 page if the id doesn’t exist.
 
 
 def convert_md_to_html(title):
@@ -120,6 +121,9 @@ def edit_page(request, title):
         "title": title,
         "form": form
         
+        # edit_page goes to edit.html but not showing save button
+        # affter press edit it takes to views.py so need to be change in views.py, make it to change 
+        # to redirect to edit.html. 
     })
 
 

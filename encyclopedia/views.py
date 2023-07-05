@@ -114,9 +114,10 @@ def edit_page(request, title):
         return render (request, "encyclopedia/error.html", {
             "message": "This entry does not exist"
         
-
-      else: form = AddPageForm(initial={"title": title, "content": existing_content})
         })
+    else: 
+        form = AddPageForm(initial={"title": title, "content": existing_content})
+        
     return render(request, "encyclopedia/edit.html",{
         "title": title,
         "form": form

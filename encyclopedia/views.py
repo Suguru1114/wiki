@@ -116,9 +116,11 @@ def edit_page(request, title):
         
         })
     else: 
+        util.save_entry(title, content)
+        html_content = convert_md_to_html(title)
         form = AddPageForm(initial={"title": title, "content": existing_content})
         
-    return render(request, "encyclopedia/edit.html",{
+    return render(request, "encyclopedia/entry.html",{
         "title": title,
         "form": form
         

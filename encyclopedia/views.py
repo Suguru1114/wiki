@@ -118,7 +118,7 @@ def edit_page(request, title):
         })
     else: 
         util.save_entry(title, content) 
-        # define content here to call the function
+        # define content here to call the function and how to not define the variable overtime in different function
         html_content = convert_md_to_html(title)
         form = AddPageForm(initial={"title": title, "content": existing_content})
         

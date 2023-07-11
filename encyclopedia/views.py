@@ -109,6 +109,7 @@ def add_page(request):
         
 def edit_page(request, title):
     existing_content = util.get_entry(title)
+    content = request.POST['content']
 
     if existing_content is None:
         return render (request, "encyclopedia/error.html", {
@@ -116,7 +117,8 @@ def edit_page(request, title):
         
         })
     else: 
-        util.save_entry(title, content)
+        util.save_entry(title, content) 
+        # define content here to call the function
         html_content = convert_md_to_html(title)
         form = AddPageForm(initial={"title": title, "content": existing_content})
         

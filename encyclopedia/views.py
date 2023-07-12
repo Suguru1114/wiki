@@ -128,7 +128,7 @@ def edit_page(request, title):
         
         # edit_page goes to edit.html but not showing save button
         # affter press edit it takes to views.py so need to be change in views.py, make it to change 
-        # to redirect to edit.html. 
+        # to redirect to edit.html. change to get insted of post
     })
 
 

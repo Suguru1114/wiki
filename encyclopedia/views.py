@@ -133,10 +133,6 @@ def edit_page(request, title):
     return render(request, "encyclopedia/entry.html",{
         "title": title,
         "form": form
-        
-        # edit_page goes to edit.html but not showing save button
-        # affter press edit it takes to views.py so need to be change in views.py, make it to change 
-        # to redirect to edit.html. change to get insted of post
     })
 
 

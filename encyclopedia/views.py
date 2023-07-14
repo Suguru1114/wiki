@@ -114,8 +114,15 @@ def edit_page(request, title):
     if existing_content is None:
         return render (request, "encyclopedia/error.html", {
             "message": "This entry does not exist"
-        
         })
+    
+    if request.method == "POST":
+        form = AddPageForm(request.POST)
+        if form.is_valid():
+            content = form.cleaned_data['content']
+            util.save_entry(title, content)
+            return redirect('entry', title=title)
+
     else: 
         # util.save_entry(title, content)  this cause the error for name error. 
         # define content here to call the function and how to not define the variable overtime in different function

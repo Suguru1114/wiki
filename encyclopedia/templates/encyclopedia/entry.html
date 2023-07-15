@@ -7,7 +7,9 @@
 {% block body %}
     {{ content | safe }}
 
-    <p><a href="{% url 'edit_page' title=title %}">Edit</a></p>
+    <form action="{% url 'edit' %}" method="POST">
+        <input type="hidden" name="entry_title" value="{{ title }}">
+    </form>
 
 
 {% endblock %} 

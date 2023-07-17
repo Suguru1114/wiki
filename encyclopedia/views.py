@@ -126,6 +126,9 @@ def edit_page(request):
         })
 
 def save_edit(request):
+    if request.method == "POST":
+        title = request.POST['title']
+         
     return
 
 

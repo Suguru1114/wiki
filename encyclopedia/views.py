@@ -125,23 +125,7 @@ def edit_page(request):
                       
         })
 
-    #     form = AddPageForm(request.POST)
-    #     if form.is_valid():
-    #         content = form.cleaned_data['content']
-    #         util.save_entry(title, content)
-    #         return redirect('entry', title=title)
-
-    # else: 
-    #     # util.save_entry(title, content)  this cause the error for name error. 
-    #     # define content here to call the function and how to not define the variable overtime in different function
-    #     html_content = convert_md_to_html(title)
-    #     form = AddPageForm(initial={"title": title, "content": existing_content})
-        
-        
-    # return render(request, "encyclopedia/entry.html",{
-    #     "title": title,
-    #     "form": form 
-
-
+def save_edit(request):
+    return
 
 

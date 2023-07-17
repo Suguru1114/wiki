@@ -116,7 +116,15 @@ def edit_page(request):
     #         "message": "This entry does not exist"
     #     })
     
-    # if request.method == "POST":
+    if request.method == "POST":
+        title = request.POST['entry_title']
+        content = util.get_entry(title)
+        return render(request,"encyclopedia/edit.html", {
+            "title":title,
+            "content":content
+                      
+        })
+
     #     form = AddPageForm(request.POST)
     #     if form.is_valid():
     #         content = form.cleaned_data['content']
@@ -132,8 +140,7 @@ def edit_page(request):
         
     # return render(request, "encyclopedia/entry.html",{
     #     "title": title,
-    #     "form": form
-    return
+    #     "form": form 
 
 
 

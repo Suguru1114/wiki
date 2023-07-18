@@ -9,6 +9,7 @@ from django import forms
 import markdown
 from django.shortcuts import render,redirect, get_object_or_404
 # gets an object by id or redirects to the 404 page if the id doesn’t exist.
+import random
 
 
 def convert_md_to_html(title):
@@ -136,4 +137,11 @@ def save_edit(request):
             "content": html_content
         })
 
-
+def rand(request):
+    allEntries = util.list_entries()
+    rand_entry = random.choice(allEntries)
+    html_content = convert_md_to_html(rand_entry)
+    return render(request, "encyclopedia/entry.html",{
+        "title":rand_entry,
+        "content":html_content
+    })

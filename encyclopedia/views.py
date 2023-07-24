@@ -98,7 +98,7 @@ def add_page(request):
         titleExist = util.get_entry(title)
         if titleExist is not None:
             return render(request, "encyclopedia/error.html",{
-                "message": "Entry page already exists"
+                "message": "Entry page already exists. Please use different name"
             })
         else:
             util.save_entry(title, content)
